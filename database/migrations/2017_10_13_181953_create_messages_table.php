@@ -19,6 +19,7 @@ class CreateMessagesTable extends Migration
             $table->boolean('type');
             $table->integer('conversation_id')->unsigned()->default(0);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

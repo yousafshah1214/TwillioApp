@@ -15,7 +15,7 @@ class AddPhoneListForeignKeyToConversationsTable extends Migration
     {
         Schema::table('conversations', function (Blueprint $table) {
             //
-            $table->foreign('phone_list_id')->references('id')->on('phone_list');
+            $table->foreign('phone_list_id')->references('id')->on('phone_list')->onDelete('cascade');
         });
     }
 

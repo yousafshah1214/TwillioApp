@@ -22,6 +22,7 @@ class CreatePhoneListTable extends Migration
             $table->integer('bulk_lists_upload_id')->unsigned()->default(0);
             $table->integer('state_id')->unsigned()->default(0);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

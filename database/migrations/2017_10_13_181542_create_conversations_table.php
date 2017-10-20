@@ -18,6 +18,7 @@ class CreateConversationsTable extends Migration
             $table->integer('user_id')->unsigned()->default(0);
             $table->integer('phone_list_id')->unsigned()->default(0);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

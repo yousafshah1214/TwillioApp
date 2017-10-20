@@ -19,6 +19,7 @@ class CreateStatesTable extends Migration
             $table->integer('area_code');
             $table->integer('user_id')->unsigned()->default(0);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

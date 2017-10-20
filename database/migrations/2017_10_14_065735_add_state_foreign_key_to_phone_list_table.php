@@ -15,7 +15,7 @@ class AddStateForeignKeyToPhoneListTable extends Migration
     {
         Schema::table('phone_list', function (Blueprint $table) {
             //
-            $table->foreign('state_id')->references('id')->on('states');
+            $table->foreign('state_id')->references('id')->on('states')->onDelete('cascade');
         });
     }
 

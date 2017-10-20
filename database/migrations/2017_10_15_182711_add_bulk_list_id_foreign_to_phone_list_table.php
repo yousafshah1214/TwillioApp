@@ -17,7 +17,7 @@ class AddBulkListIdForeignToPhoneListTable extends Migration
             //
 
 
-            $table->foreign('bulk_lists_upload_id')->references('id')->on('bulk_lists_upload');
+            $table->foreign('bulk_lists_upload_id')->references('id')->on('bulk_lists_upload')->onDelete('cascade');
         });
     }
 
@@ -31,7 +31,7 @@ class AddBulkListIdForeignToPhoneListTable extends Migration
         Schema::table('phone_list', function (Blueprint $table) {
             //
             $table->dropForeign('phone_list_bulk_lists_upload_id_foreign');
-            
+
         });
     }
 }

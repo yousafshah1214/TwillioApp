@@ -18,6 +18,7 @@ class CreateTemplatesTable extends Migration
             $table->string('template_body');
             $table->integer('user_id')->unsigned()->default(0);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

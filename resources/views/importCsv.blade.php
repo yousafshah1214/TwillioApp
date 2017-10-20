@@ -3,7 +3,7 @@
 @section('content')
   <div class="container-fluid">
     <div class="row">
-      @include('partials.bulksms.nav')
+      @include('partials.bulkSms.nav')
 
       <main class="col-sm-9 ml-sm-auto col-md-10 pt-3" role="main">
         <h1>Bulk SMS</h1>

@@ -3,9 +3,11 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class BulkListsUpload extends Model
 {
+  use SoftDeletes;
     //
     protected $table = "bulk_lists_upload";
 

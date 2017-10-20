@@ -19,6 +19,7 @@ class CreateBulkListsUploadTable extends Migration
             $table->integer('number_of_records');
             $table->integer('user_id')->unsigned()->default(0);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

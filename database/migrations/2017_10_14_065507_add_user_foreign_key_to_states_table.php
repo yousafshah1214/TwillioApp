@@ -15,7 +15,7 @@ class AddUserForeignKeyToStatesTable extends Migration
     {
         Schema::table('states', function (Blueprint $table) {
             //
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

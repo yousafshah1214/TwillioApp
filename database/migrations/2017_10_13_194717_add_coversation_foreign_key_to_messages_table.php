@@ -15,7 +15,7 @@ class AddCoversationForeignKeyToMessagesTable extends Migration
     {
         Schema::table('messages', function (Blueprint $table) {
             //
-            $table->foreign('conversation_id')->references('id')->on('conversations');
+            $table->foreign('conversation_id')->references('id')->on('conversations')->onDelete('cascade');
         });
     }
 

@@ -23,6 +23,8 @@ Route::post('bulk/import/csv/upload','CsvImportController@Store');
 
 Route::get('bulk/sms/send','BulkSMSController@bulkSms');
 
+Route::resource('user','UserController');
+
 // Route::get('bulk/import/excel','BulkSMSController@importExcel');
 //
 // Route::get('bulk/export/csv','BulkSMSController@exportCsv');
