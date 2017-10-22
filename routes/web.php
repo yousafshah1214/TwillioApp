@@ -25,6 +25,8 @@ Route::get('bulk/sms/send','BulkSMSController@bulkSms');
 
 Route::resource('user','UserController');
 
+Route::resource('states','StateController');
+
 // Route::get('bulk/import/excel','BulkSMSController@importExcel');
 //
 // Route::get('bulk/export/csv','BulkSMSController@exportCsv');

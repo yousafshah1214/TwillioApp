@@ -76,13 +76,17 @@
             <span class="text-muted">List of Negative Keywords</span>
           </div>
           <div class="col-4 col-sm-2 placeholder">
-            <img src="data:image/gif;base64,R0lGODlhAQABAIABAADcgwAAACwAAAAAAQABAAACAkQBADs=" width="200" height="200" class="img-fluid rounded-circle" alt="Generic placeholder thumbnail">
-            <h4>Users</h4>
+            <a href="{{ url('user') }}">
+              <img src="data:image/gif;base64,R0lGODlhAQABAIABAADcgwAAACwAAAAAAQABAAACAkQBADs=" width="200" height="200" class="img-fluid rounded-circle" alt="Generic placeholder thumbnail">
+              <h4>Users</h4>
+            </a>
             <span class="text-muted">Create And Edit Users</span>
           </div>
           <div class="col-4 col-sm-2 placeholder">
-            <img src="data:image/gif;base64,R0lGODlhAQABAIABAADcgwAAACwAAAAAAQABAAACAkQBADs=" width="200" height="200" class="img-fluid rounded-circle" alt="Generic placeholder thumbnail">
-            <h4>States</h4>
+            <a href="{{ url('states') }}">
+              <img src="data:image/gif;base64,R0lGODlhAQABAIABAADcgwAAACwAAAAAAQABAAACAkQBADs=" width="200" height="200" class="img-fluid rounded-circle" alt="Generic placeholder thumbnail">
+              <h4>States</h4>
+            </a>
             <span class="text-muted">Create and Edit States</span>
           </div>
         </section>
