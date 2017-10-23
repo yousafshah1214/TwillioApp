@@ -42,4 +42,11 @@ class User extends Authenticatable
     public function BulkList(){
       return $this->hasMany('App\BulkListsUpload');
     }
+
+    /**
+    * Relationship function for templates assigned to each user
+    */
+    public function templates(){
+      return $this->hasMany('App\Template');
+    }
 }

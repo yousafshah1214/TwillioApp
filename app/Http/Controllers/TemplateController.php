@@ -3,12 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\State;
-use App\User;
-use App\Http\Requests\StateCreateRequest;
-use App\Http\Requests\StateEditRequest;
+use App\Template;
+use App\Http\Requests\TemplateCreateRequest;
+use App\Http\Requests\TemplateEditRequest;
 
-class StateController extends Controller
+class TemplateController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,8 +17,9 @@ class StateController extends Controller
     public function index()
     {
         //
-        $states = State::paginate(10);
-        return view('stateList')->with('states',$states);
+        $templates = Template::paginate(10);
+
+        return view('templateList')->with('templates',$templates);
     }
 
     /**
@@ -30,8 +30,7 @@ class StateController extends Controller
     public function create()
     {
         //
-        $users = User::all();
-        return view('stateCreateForm')->with('users',$users);
+        return view('templateCreateForm');
     }
 
     /**
@@ -40,16 +39,18 @@ class StateController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StateCreateRequest $request)
+    public function store(TemplateCreateRequest $request)
     {
         //
-        $state = new State();
-        $state->state_name = $request->get('stateName');
-        $state->area_code = $request->get('areaCode');
-        $state->user_id = User::find($request->get('user'))->id;
-        $state->save();
+        $template = new Template();
+        $template->template_name =  $request->get('name');
+        $template->template_body =  $request->get('template');
+        $template->user_id       =  rand(1,50); //Auth::user()->id;
 
-        return redirect('states');
+        $template->save();
+
+        return redirect('templates');
+
     }
 
     /**
@@ -73,11 +74,9 @@ class StateController extends Controller
     public function edit($id)
     {
         //
-        $state = State::find($id);
+        $template = Template::find($id);
 
-        $users = User::all();
-
-        return view('stateEditForm')->with('state',$state)->with('users',$users);
+        return view('templateEditForm')->with('template',$template);
     }
 
     /**
@@ -87,17 +86,17 @@ class StateController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(StateEditRequest $request, $id)
+    public function update(Request $request, $id)
     {
         //
-        $state = State::find($id);
+        $template = Template::find($id);
+        $template->template_name =  $request->get('name');
+        $template->template_body =  $request->get('template');
+        $template->user_id       =  rand(1,50); //Auth::user()->id;
 
-        $state->state_name = $request->get('stateName');
-        $state->area_code = $request->get('areaCode');
-        $state->user_id = User::find($request->get('user'))->id;
-        $state->save();
+        $template->save();
 
-        return redirect('states');
+        return redirect('templates');
     }
 
     /**
@@ -109,10 +108,10 @@ class StateController extends Controller
     public function destroy($id)
     {
         //
-        $state = State::find($id);
+        $template = Template::find($id);
 
-        $state->delete();
+        $template->delete();
 
-        return redirect('states');
+        return redirect('templates');
     }
 }
