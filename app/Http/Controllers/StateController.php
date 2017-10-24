@@ -45,8 +45,10 @@ class StateController extends Controller
         //
         $state = new State();
         $state->state_name = $request->get('stateName');
+        $state->state_code = $request->get('stateCode');
         $state->area_code = $request->get('areaCode');
         $state->user_id = User::find($request->get('user'))->id;
+        $state->country = $request->get('country');
         $state->save();
 
         return redirect('states');
@@ -93,8 +95,10 @@ class StateController extends Controller
         $state = State::find($id);
 
         $state->state_name = $request->get('stateName');
+        $state->state_code = $request->get('stateCode');
         $state->area_code = $request->get('areaCode');
         $state->user_id = User::find($request->get('user'))->id;
+        $state->country = $request->get('country');
         $state->save();
 
         return redirect('states');

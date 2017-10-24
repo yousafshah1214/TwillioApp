@@ -29,6 +29,8 @@ Route::resource('states','StateController');
 
 Route::resource('templates','TemplateController');
 
+Route::match(['get', 'post'], 'sms/reply', 'SmsController@reply');
+
 // Route::get('bulk/import/excel','BulkSMSController@importExcel');
 //
 // Route::get('bulk/export/csv','BulkSMSController@exportCsv');
