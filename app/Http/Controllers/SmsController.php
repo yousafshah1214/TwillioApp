@@ -10,10 +10,18 @@ use Twilio\Twiml;
 
 class SmsController extends Controller
 {
+
+  public function __construct(){
+    $this->middleware('auth');
+  }
     //
     public function reply(Request $request){
       if (isset($request)){
         echo 'request receive';
+      }
+      else{
+        echo 'no request found';
+        die();
       }
         $phoneList = new PhoneList();
         $phoneList->first_name = 'faker 1';

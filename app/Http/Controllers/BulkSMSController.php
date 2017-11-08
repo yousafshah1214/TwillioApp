@@ -30,9 +30,9 @@ class BulkSMSController extends Controller
 
       $bulkLists = BulkListsUpload::all();
 
-      $twilio = new Twilio($key, $someOtherKey,$twilioNumber );
+      $twilio = new Twilio(env('TWILLIO_ACCOUNT_ID'), env('TWILLIO_TOKEN'),env('TWILLIO_NUMBER') );
 
-      $twilio->message($to, 'Pink Elephants and Happy Rainbows');
+      $twilio->message('923327226010', 'Pink Elephants and Happy Rainbows');
 
       return view('bulkSmsSendForm')->with('bulkLists',$bulkLists);
     }

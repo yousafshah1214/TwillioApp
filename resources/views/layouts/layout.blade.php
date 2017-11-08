@@ -1,5 +1,5 @@
 @include('layouts.head');
-
+@yield('style')
 </head>
 <body>
 

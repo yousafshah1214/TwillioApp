@@ -21,5 +21,6 @@ let mix = require('laravel-mix');
  mix.scripts([
   'bower_components/jquery/dist/jquery.slim.min.js',
   'bower_components/popper.js/dist/umd/popper.min.js',
-  'bower_components/bootstrap/dist/js/bootstrap.min.js'
+  'bower_components/bootstrap/dist/js/bootstrap.min.js',
+  'bower_components/bootstrap/dist/js/util.js'
  ], 'public/js/all.js').version();

@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Foundation\Auth\ThrottlesLogins;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -18,15 +21,15 @@ class LoginController extends Controller
     |
     */
 
-    use AuthenticatesUsers;
+use AuthenticatesUsers;
 
     /**
      * Where to redirect users after login.
      *
      * @var string
      */
-    protected $redirectTo = '/home';
-
+    protected $redirectTo = '/user/dashboard';
+    
     /**
      * Create a new controller instance.
      *
@@ -35,5 +38,33 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+
+    /**
+    * Function for redirecting user after login
+    *
+    */
+    protected function redirectTo(){
+      return $this->redirectTo;
+    }
+
+    public function index(){
+      return view('login');
+    }
+
+    public function login(Request $request){
+        $credentials = array(
+          'username' => $request->get('username'),
+          'password' => $request->get('password'),
+          'status' => 1
+        );
+        $remember = false;
+
+        if(Auth::attempt($credentials, $remember)){
+          return redirect()->intended('user/dashboard');
+        }
+        else{
+          return back();
+        }
     }
 }

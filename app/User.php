@@ -49,4 +49,11 @@ class User extends Authenticatable
     public function templates(){
       return $this->hasMany('App\Template');
     }
+
+    /**
+    * Relationship function for Conversations
+    */
+    public function conversations(){
+      return $this->hasMany('App\Conversation');
+    }
 }

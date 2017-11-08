@@ -11,23 +11,51 @@
 |
 */
 
-Route::get('/', 'HomeController@index');
 
-Route::get('home', 'HomeController@index');
+Route::get('login','Auth\LoginController@index')->name('login');
 
-Route::get('bulk/sms','BulkSMSController@index');
+Route::post('login','Auth\LoginController@login');
 
-Route::get('bulk/import/csv','CsvImportController@create');
+Route::group(['middleware' => ['auth']], function(){
 
-Route::post('bulk/import/csv/upload','CsvImportController@Store');
+    Route::get('user/dashboard','DashboardController@index')->name('user.dashboard');
 
-Route::get('bulk/sms/send','BulkSMSController@bulkSms');
+    Route::get('user/conversations','ConversationsController@index')->name('user.conversations.list');
 
-Route::resource('user','UserController');
+    Route::get('user/conversations/show/{id}','ConversationsController@show')->name('user.conversations.show');
 
-Route::resource('states','StateController');
+    Route::get('logout','Auth\LogoutController@logout');
+});
 
-Route::resource('templates','TemplateController');
+Route::get('admin/login','Auth\AdminLoginController@showLoginForm')->name('admin.login');
+
+Route::post('admin/login','Auth\AdminLoginController@login');
+
+
+
+Route::group(['middleware' => ['auth:admin']], function(){
+
+    Route::get('/', 'HomeController@index');
+
+    Route::get('home', 'HomeController@index');
+
+    Route::get('bulk/sms','BulkSMSController@index');
+
+    Route::get('bulk/import/csv','CsvImportController@create');
+
+    Route::post('bulk/import/csv/upload','CsvImportController@Store');
+
+    Route::get('bulk/sms/send','BulkSMSController@bulkSms');
+
+    Route::resource('user','UserController');
+
+    Route::resource('states','StateController');
+
+    Route::resource('templates','TemplateController');
+
+
+
+});
 
 Route::match(['get', 'post'], 'sms/reply', 'SmsController@reply');
 

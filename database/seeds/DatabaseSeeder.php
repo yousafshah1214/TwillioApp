@@ -18,5 +18,6 @@ class DatabaseSeeder extends Seeder
         $this->call(PhoneListTableSeeder::class);
         $this->call(ConversationsTableSeeder::class);
         $this->call(MessagesTableSeeder::class);
+        $this->call(RepliesTableSeeder::class);
     }
 }

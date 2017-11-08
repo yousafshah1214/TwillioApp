@@ -17,4 +17,8 @@ class PhoneList extends Model
     public function bulkList(){
       return $this->belongsTo('App\BulkListsUpload');
     }
+
+    public function conversation(){
+      return $this->hasOne('App\Conversation');
+    }
 }
