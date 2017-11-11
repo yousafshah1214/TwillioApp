@@ -1,6 +1,5 @@
 @include('layouts.head');
-@yield('style')
-</head>
+
 <body>
 
 {{-- @if(Auth::check()) --}}
@@ -13,6 +12,8 @@
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="{{ mix('js/all.js') }}"></script>
+
+  @yield('script')
 
 </body>
 </html>

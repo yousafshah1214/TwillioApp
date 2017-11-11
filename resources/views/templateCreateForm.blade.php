@@ -31,7 +31,7 @@
               <div class="form-group">
                 <label for="formControlTextarea">Template</label>
                 <textarea name="template" class="form-control" id="formControlTextarea" rows="3" aria-describedby="templateHelp" placeholder="Enter new template"></textarea>
-                <small id="templateHelp" class="form-text text-muted">Placeholders for fields: First name = "firstname" , Last name = "lastname" , Address = "address" , Phone number = "phonenumber"</small>
+                <small id="templateHelp" class="form-text text-muted">Placeholders for fields: First name = @{ firstname } , Last name = @{ lastname } , Address = @{ address } , Phone number = @{ phoneNumber }</small>
               </div>
               <button type="submit" class="btn btn-primary">Submit to Create Template</button>
 

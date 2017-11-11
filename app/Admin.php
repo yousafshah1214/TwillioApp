@@ -11,7 +11,7 @@ class Admin extends Authenticatable
     //
     // protected $loginPath = 'login/admin';
 
-    protected $guard = 'admins';
+    protected $guard = 'admin';
 
     use Notifiable;
 }

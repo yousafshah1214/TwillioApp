@@ -24,6 +24,8 @@ Route::group(['middleware' => ['auth']], function(){
 
     Route::get('user/conversations/show/{id}','ConversationsController@show')->name('user.conversations.show');
 
+    Route::post('user/sms/send','SmsController@send')->name('user.sms.send');
+
     Route::get('logout','Auth\LogoutController@logout');
 });
 
@@ -35,11 +37,11 @@ Route::post('admin/login','Auth\AdminLoginController@login');
 
 Route::group(['middleware' => ['auth:admin']], function(){
 
-    Route::get('/', 'HomeController@index');
+    Route::get('/', 'HomeController@index')->name('home.root');
 
-    Route::get('home', 'HomeController@index');
+    Route::get('home', 'HomeController@index')->name('home');
 
-    Route::get('bulk/sms','BulkSMSController@index');
+    Route::get('bulk/sms','BulkSMSController@index')->name('bulk.sms');
 
     Route::get('bulk/import/csv','CsvImportController@create');
 
@@ -47,17 +49,25 @@ Route::group(['middleware' => ['auth:admin']], function(){
 
     Route::get('bulk/sms/send','BulkSMSController@bulkSms');
 
+    Route::post('bulk/sms/send','BulkSMSController@bulkSmsSend');
+
     Route::resource('user','UserController');
 
     Route::resource('states','StateController');
 
     Route::resource('templates','TemplateController');
 
+    Route::post('reports/show','ReportController@show')->name('reports.show.post');
 
+    Route::get('/reports/show/{id}','ReportController@show')->name('reports.show');
+
+    Route::resource('reports','ReportController');
+
+    Route::resource('compliance','ComplianceController');
 
 });
 
-Route::match(['get', 'post'], 'sms/reply', 'SmsController@reply');
+Route::match(['get', 'post'], 'sms/reply', 'SmsController@reply')->name('user.sms.reply');
 
 // Route::get('bulk/import/excel','BulkSMSController@importExcel');
 //

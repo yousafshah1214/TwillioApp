@@ -22,22 +22,20 @@
               @endforeach
             @endif
             
-            {!! Form::open(['url' => 'bulk/import/csv/upload','files'  =>  true ]) !!}
+            {!! Form::open(['url' => 'bulk/sms/send' ]) !!}
               <div class="form-group">
                 <label for="templateSelect">Select Template</label>
-                <select class="form-control" id="templateSelect">
-                  <option>Select Template</option>
-                  <option>template 1</option>
-                  <option>template 2</option>
-                  <option>template 3</option>
-                  <option>template 4</option>
-                  <option>template 5</option>
+                <select class="form-control" name="template" id="templateSelect">
+                  <option value="">Select Template</option>
+                @foreach($templates as $template)
+                        <option value="{{ $template->id }}">{{ $template->template_name }}</option>
+                @endforeach
                 </select>
               </div>
               <div class="form-group">
                 <label for="selectList">Select Bulk List</label>
                 <select class="form-control" id="selectList" name="bulkList">
-                  <option>Select List</option>
+                  <option value="">Select List</option>
                   @foreach ($bulkLists as $list)
                     <option value="{{ $list->id }}">{{ $list->bulk_list_name }}</option>
                   @endforeach

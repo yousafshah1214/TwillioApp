@@ -53,8 +53,10 @@
 
         <section class="row text-center placeholders">
           <div class="col-4 col-sm-2 placeholder">
-            <img src="data:image/gif;base64,R0lGODlhAQABAIABAAJ12AAAACwAAAAAAQABAAACAkQBADs=" width="200" height="200" class="img-fluid rounded-circle" alt="Generic placeholder thumbnail">
-            <h4>Templates</h4>
+            <a href="{{ route('templates.index') }}">
+              <img src="data:image/gif;base64,R0lGODlhAQABAIABAAJ12AAAACwAAAAAAQABAAACAkQBADs=" width="200" height="200" class="img-fluid rounded-circle" alt="Generic placeholder thumbnail">
+              <h4>Templates</h4>
+            </a>
             <div class="text-muted">Create and Edit SMS Templates</div>
           </div>
           <div class="col-4 col-sm-2 placeholder">
@@ -66,13 +68,17 @@
 
           </div>
           <div class="col-4 col-sm-2 placeholder">
-            <img src="data:image/gif;base64,R0lGODlhAQABAIABAAJ12AAAACwAAAAAAQABAAACAkQBADs=" width="200" height="200" class="img-fluid rounded-circle" alt="Generic placeholder thumbnail">
-            <h4>Reports</h4>
+            <a href="{{ route('reports.index') }}">
+              <img src="data:image/gif;base64,R0lGODlhAQABAIABAAJ12AAAACwAAAAAAQABAAACAkQBADs=" width="200" height="200" class="img-fluid rounded-circle" alt="Generic placeholder thumbnail">
+              <h4>Reports</h4>
+            </a>
             <span class="text-muted">Reports on Messages</span>
           </div>
           <div class="col-4 col-sm-2 placeholder">
-            <img src="data:image/gif;base64,R0lGODlhAQABAIABAADcgwAAACwAAAAAAQABAAACAkQBADs=" width="200" height="200" class="img-fluid rounded-circle" alt="Generic placeholder thumbnail">
-            <h4>Compliance</h4>
+            <a href="{{ route('compliance.index') }}">
+              <img src="data:image/gif;base64,R0lGODlhAQABAIABAADcgwAAACwAAAAAAQABAAACAkQBADs=" width="200" height="200" class="img-fluid rounded-circle" alt="Generic placeholder thumbnail">
+              <h4>Compliance</h4>
+            </a>
             <span class="text-muted">List of Negative Keywords</span>
           </div>
           <div class="col-4 col-sm-2 placeholder">

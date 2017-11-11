@@ -9,3 +9,8 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{ mix('css/all.css') }}">
+
+    @yield('style')
+
+
+  </head>
