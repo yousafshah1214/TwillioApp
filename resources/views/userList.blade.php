@@ -31,13 +31,11 @@
                   <td>{{ $user->username }}</td>
                   <td>{{ $user->email }}</td>
                   <td>
-                    @foreach ($user->states as $state)
-                      @if(!is_null($state->state_name))
-                        {{ $state->state_name }} <br/>
+                      @if(!is_null($user->state))
+                        {{ $user->state->state_name }} <br/>
                       @else
                         State Not Assigned
                       @endif
-                    @endforeach
                   </td>
                   <td>
                     @if($user->status == 1)

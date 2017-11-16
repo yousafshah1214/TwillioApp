@@ -65,6 +65,9 @@ Route::group(['middleware' => ['auth:admin']], function(){
 
     Route::resource('compliance','ComplianceController');
 
+    Route::get('admin/logout','Auth\AdminLogoutController@logout');
+
+
 });
 
 Route::match(['get', 'post'], 'sms/reply', 'SmsController@reply')->name('user.sms.reply');

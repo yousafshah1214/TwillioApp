@@ -15,4 +15,8 @@ class State extends Model
     public function user(){
       return $this->belongsTo('App\User');
     }
+
+    public function phoneList(){
+        return $this->hasMany('App\PhoneList');
+    }
 }

@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Message;
+use App\PhoneList;
 use Illuminate\Http\Request;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
 {
@@ -15,7 +17,9 @@ class DashboardController extends Controller
     public function index()
     {
         //
-        return view('user.dashboard');
+        $list = Auth::user()->state->phoneList;
+
+        return view('user.dashboard')->with('list',$list);
     }
 
     /**

@@ -41,7 +41,9 @@
                 <label for="formControlSelect">State Assigned to User</label>
                 <select class="form-control" id="formControlSelect" name="state">
                   <option value="">Select State</option>
-                  <option value="stateName">State Name</option>
+                  @foreach($states as $state)
+                        <option value="{{ $state->id }}">{{ $state->state_name }}</option>
+                  @endforeach
                 </select>
               </div>
               <div class="form-group">

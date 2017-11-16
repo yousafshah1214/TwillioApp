@@ -19,6 +19,10 @@ class PhoneList extends Model
     }
 
     public function conversation(){
-      return $this->hasOne('App\Conversation');
+      return $this->hasMany('App\Conversation');
+    }
+
+    public function state(){
+        return $this->belongsTo('App\State');
     }
 }

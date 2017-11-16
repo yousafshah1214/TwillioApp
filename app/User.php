@@ -32,8 +32,8 @@ class User extends Authenticatable
     /**
     * Relationship function for states assigned to Each User
     */
-    public function states(){
-      return $this->hasMany('App\State');
+    public function state(){
+      return $this->hasOne('App\State');
     }
 
     /**

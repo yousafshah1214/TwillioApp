@@ -159,15 +159,39 @@ class BulkSMSController extends Controller
 
         $address = $phoneNumberObj->address;
 
-        $message = str_replace_first('{ firstname }', $firstname, $template->template_body);
+        $message = $template->template_body;
 
-        $message = str_replace_first('{ lastname }', $lastname, $message);
+        if ($contains = str_contains("$message", "{ firstname }"))
+        {
+            do {
+                $message = str_replace_first('{ firstname }', $firstname, $message);
+                $contains = str_contains("$message", "{ firstname }");
+            } while ($contains);
+        }
 
-        $message = str_replace_first('{ lastname }', $lastname, $message);
+        if ($contains = str_contains("$message", "{ lastname }"))
+        {
+            do {
+                $message = str_replace_first('{ lastname }', $lastname, $message);
+                $contains = str_contains("$message", "{ lastname }");
+            } while ($contains);
+        }
 
-        $message = str_replace_first('{ address }', $address, $message);
+        if ($contains = str_contains("$message", "{ address }"))
+        {
+            do {
+                $message = str_replace_first('{ address }', $address, $message);
+                $contains = str_contains("$message", "{ address }");
+            } while ($contains);
+        }
 
-        $message = str_replace_first('{ phoneNumber }', $phoneNumber, $message);
+        if ($contains = str_contains("$message", "{ phoneNumber }"))
+        {
+            do {
+                $message = str_replace_first('{ phoneNumber }', $phoneNumber, $message);
+                $contains = str_contains("$message", '{ phoneNumber }');
+            } while ($contains);
+        }
 
         return $message;
     }
